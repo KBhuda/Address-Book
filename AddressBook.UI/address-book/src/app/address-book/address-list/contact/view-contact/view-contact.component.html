@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="{{ contact?.FirstName }}" class="img-responsive" style="max-height: 300px; max-width: 300px; margin-bottom: 10px;">
+        </div>
+        <div class="col-xs-12" style="padding-top: 5%;">
+            <h5>{{ contact?.FirstName }} {{ contact?.Surname }}</h5>
+            <p>{{ contact?.BirthDate | date: 'fullDate' }}</p>
+            <p>{{ contact?.UpdatedDate }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group mr-2">
+                <h5>Contact Details</h5>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-success" routerLink='/add-contact-item'>
+                    <i class="fas fa-plus"></i> Add Contact Detail
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="card-deck">
+            <app-contact-item [contactDetail]="c" *ngFor="let c of contactDetails"></app-contact-item>
+        </div>
+    </div>
+</div>

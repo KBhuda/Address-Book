@@ -1,0 +1,19 @@
+.card {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    margin-left: 45%;
+    margin-right: 50%;
+    height: 10rem;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card:hover {
+    border: 2px black solid;
+}

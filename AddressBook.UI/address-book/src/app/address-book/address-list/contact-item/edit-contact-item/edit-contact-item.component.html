@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 1.0rem;">
+        <form>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" #descriptionInput class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contactType">Contact Type</label>
+                    <select id="contactType" class="form-control" #contactTypeInput>
+                        <option selected>...</option>
+                        <option *ngFor="let cType of contactTypes"
+                                [value]="cType">
+                            {{cType}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button class="btn btn-outline-success" type="submit" (click)="onEditItem()"><i class="fas fa-save"></i> Save</button>
+                        <button class="btn btn-outline-primary" type="button"><i class="fa fa-redo-alt" aria-hidden="true"></i> Clear</button>
+                        <button class="btn btn-outline-warning" type="button" (click)="onCancel()"><i class="fas fa-ban"></i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

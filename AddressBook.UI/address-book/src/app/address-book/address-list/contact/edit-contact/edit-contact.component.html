@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 1.0rem;">
+        <form>
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" #firstNameInput class="form-control">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" #surnameInput class="form-control">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="birthDate">BirthDate</label>
+                    <input type="date" id="birthDate" #birthDateInput class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button class="btn btn-outline-success" type="submit" (click)="onEditItem()"><i class="fas fa-save"></i> Save</button>
+                        <button class="btn btn-outline-primary" type="button"><i class="fa fa-redo-alt" aria-hidden="true"></i> Clear</button>
+                        <button class="btn btn-outline-warning" type="button" (click)="onCancel()"><i class="fas fa-ban"></i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

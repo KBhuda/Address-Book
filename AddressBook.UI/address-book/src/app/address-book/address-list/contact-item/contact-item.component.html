@@ -1,0 +1,13 @@
+<div class="card" style="width: 12rem;">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{ contactDetail?.ContactTypeId }}</h5>
+        <p *ngIf="contactDetail?.ContactTypeId !=='Address'" class="card-text">{{ contactDetail?.Description }}</p>
+        <address *ngIf="contactDetail?.ContactTypeId === 'Address'" class="card-text ">
+            {{ contactDetail?.Description.split('|', 3)[0] }}<br>
+            {{ contactDetail?.Description.split('|', 3)[1] }}<br>
+            {{ contactDetail?.Description.split('|', 3)[2] }}<br>
+        </address>
+        <a class="btn btn-sm card-link" (click)="onEditContactDetail(contactDetail?.ContactDetailId)"><i class="fas fa-pen"></i></a>
+        <a class="btn btn-sm card-link" (click)="onDelete(contactDetail?.ContactDetailId, contactDetail?.ContactTypeId)"><i class="fas fa-trash-alt"></i></a>
+    </div>
+</div>
