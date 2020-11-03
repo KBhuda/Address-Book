@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
     collapsed = true;
-    constructor() { }
+    @ViewChild('searchInput', { static: false }) searchInputRef: ElementRef;
+
+    constructor(private contactSvc: ContactService) { }
 
     ngOnInit(): void {
+    }
+
+    downloadFile(event: any) {
+        
+    }
+
+    searchContact() {
+        this.contactSvc.searchContacts(this.searchInputRef.nativeElement.value).toPromise();
     }
 }

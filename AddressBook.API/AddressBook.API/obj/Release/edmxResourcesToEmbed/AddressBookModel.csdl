@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AddressBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ContactDetails" Relationship="Self.FK__ContactDe__Conta__286302EC" FromRole="Contact" ToRole="ContactDetail" />
+  </EntityType>
+  <EntityType Name="ContactDetail">
+    <Key>
+      <PropertyRef Name="ContactDetailId" />
+    </Key>
+    <Property Name="ContactDetailId" Type="Int32" Nullable="false" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="ContactTypeId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Contact" Relationship="Self.FK__ContactDe__Conta__286302EC" FromRole="ContactDetail" ToRole="Contact" />
+    <NavigationProperty Name="ContactType" Relationship="Self.FK__ContactDe__Conta__29572725" FromRole="ContactDetail" ToRole="ContactType" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="ContactTypeId" />
+    </Key>
+    <Property Name="ContactTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ContactType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ContactDetails" Relationship="Self.FK__ContactDe__Conta__29572725" FromRole="ContactType" ToRole="ContactDetail" />
+  </EntityType>
+  <Association Name="FK__ContactDe__Conta__286302EC">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="ContactDetail">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ContactDe__Conta__29572725">
+    <End Role="ContactType" Type="Self.ContactType" Multiplicity="0..1" />
+    <End Role="ContactDetail" Type="Self.ContactDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactType">
+        <PropertyRef Name="ContactTypeId" />
+      </Principal>
+      <Dependent Role="ContactDetail">
+        <PropertyRef Name="ContactTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AddressBookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="ContactDetails" EntityType="Self.ContactDetail" />
+    <EntitySet Name="ContactTypes" EntityType="Self.ContactType" />
+    <AssociationSet Name="FK__ContactDe__Conta__286302EC" Association="Self.FK__ContactDe__Conta__286302EC">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="ContactDetail" EntitySet="ContactDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ContactDe__Conta__29572725" Association="Self.FK__ContactDe__Conta__29572725">
+      <End Role="ContactType" EntitySet="ContactTypes" />
+      <End Role="ContactDetail" EntitySet="ContactDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

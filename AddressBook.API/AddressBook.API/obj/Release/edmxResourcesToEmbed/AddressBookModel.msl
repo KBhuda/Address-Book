@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AddressBookModelStoreContainer" CdmEntityContainer="AddressBookEntities">
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="AddressBookModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactDetails">
+      <EntityTypeMapping TypeName="AddressBookModel.ContactDetail">
+        <MappingFragment StoreEntitySet="ContactDetail">
+          <ScalarProperty Name="ContactDetailId" ColumnName="ContactDetailId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactTypes">
+      <EntityTypeMapping TypeName="AddressBookModel.ContactType">
+        <MappingFragment StoreEntitySet="ContactType">
+          <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+          <ScalarProperty Name="ContactType1" ColumnName="ContactType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -58,7 +58,7 @@ namespace AddressBook.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ContactExists(id))
+                if (!ContactTypeExists(id))
                 {
                     return NotFound();
                 }

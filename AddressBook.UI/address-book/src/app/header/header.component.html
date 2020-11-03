@@ -8,16 +8,16 @@
         <div class="input-group mr-1">
             <div class="input-group">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" (change)="downloadFile($event)">
                     <label class="custom-file-label" for="customFile">Upload Contacts</label>
                 </div>
             </div>
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-light" type="button"><i class="fas fa-search"></i></button>
+                <button class="btn btn-outline-light" type="button" (click)="searchContact()"><i class="fas fa-search"></i></button>
             </div>
-            <input type="text" class="form-control" placeholder="Search contact" aria-label="Search contact" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" #searchInput placeholder="Search contact" aria-label="Search contact" aria-describedby="basic-addon2">
         </div>
     </form>
 </nav>

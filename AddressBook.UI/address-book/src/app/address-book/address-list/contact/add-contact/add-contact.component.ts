@@ -36,6 +36,12 @@ export class AddContactComponent implements OnInit {
         this.contactSvc.saveContact(newContact).toPromise();
     }
 
+    onClearForm() {
+        this.firstNameInputRef.nativeElement.value = '';
+        this.surnameInputRef.nativeElement.value = '';
+        this.birthDateInputRef.nativeElement.value = null;
+    }
+
     onCancel() {
         swal.fire({
             title: 'Are you sure want to cancel?',

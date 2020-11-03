@@ -16,6 +16,7 @@ import { AddContactItemComponent } from './address-book/address-list/contact-ite
 import { EditContactItemComponent } from './address-book/address-list/contact-item/edit-contact-item/edit-contact-item.component';
 import { ViewContactItemComponent } from './address-book/address-list/contact-item/view-contact-item/view-contact-item.component';
 import { ContactService } from './services/contact.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ContactService } from './services/contact.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]
